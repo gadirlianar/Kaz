@@ -69,7 +69,7 @@ export const tours: Tour[] = [
     duration: "1 күн",
     description:
       "Алматыдан бір күндік тур. «Ведьмалар сақалы» мен «Жосылған қалалар» аңғарына серуен. Түскі ас және трансфер кіреді.",
-    imageUrl: "https://images.unsplash.com/photo-1525904574977-50b32948c26d?q=80&w=800&auto=format&fit=crop",
+    imageUrl: "https://images.unsplash.com/photo-1509316785289-025f5b846b35?q=80&w=800&auto=format&fit=crop",
     rating: 4.6,
     featured: true,
   },
@@ -103,7 +103,7 @@ export const tours: Tour[] = [
     duration: "9 сағат 15 мин",
     description:
       "Air Astana рейсі (байланыс рейс). Студенттер үшін арнайы баға. Багаж 30 кг кіреді.",
-    imageUrl: "https://images.unsplash.com/photo-1596422846543-75c6fc197f0a?q=80&w=800&auto=format&fit=crop",
+    imageUrl: "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?q=80&w=800&auto=format&fit=crop",
     rating: 4.3,
     featured: false,
   },
@@ -119,7 +119,7 @@ export const tours: Tour[] = [
     duration: "7 сағат 45 мин",
     description:
       "Wizz Air немесе Turkish Airlines рейстері. Студенттік бағдарламаға қатысушыларға жеңілдік.",
-    imageUrl: "https://images.unsplash.com/photo-1633320625900-58074d22187b?q=80&w=800&auto=format&fit=crop",
+    imageUrl: "https://images.unsplash.com/photo-1610016302534-6f67f1c968d8?q=80&w=800&auto=format&fit=crop",
     rating: 4.4,
     featured: false,
   },
@@ -153,7 +153,7 @@ export const tours: Tour[] = [
     duration: "1 түн",
     description:
       "Стамбулдағы ең жақсы қонақ үйлердің бірі. Босфор көрінісі, SPA, фитнес-зал. Таңғы ас кіреді.",
-    imageUrl: "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=800&auto=format&fit=crop",
+    imageUrl: "https://images.unsplash.com/photo-1558104240-729556013a2b?q=80&w=800&auto=format&fit=crop",
     rating: 4.8,
     featured: false,
   },

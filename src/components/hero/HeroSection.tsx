@@ -293,7 +293,7 @@ export default function HeroSection() {
                     <div className="relative card-elevated max-w-md ml-auto overflow-hidden">
                       <div className="relative h-48 w-full">
                         <img 
-                          src="https://images.unsplash.com/photo-1633320625900-58074d22187b?q=80&w=800&auto=format&fit=crop" 
+                          src="https://images.unsplash.com/photo-1610016302534-6f67f1c968d8?q=80&w=800&auto=format&fit=crop" 
                           alt="Милан" 
                           className="w-full h-full object-cover" 
                         />
