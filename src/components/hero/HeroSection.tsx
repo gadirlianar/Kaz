@@ -1,13 +1,10 @@
 /* ================================================================
-   HeroSection — Ultra-Dynamic Dual-Path Hero
+   HeroSection — Dual-Path Hero
    
-   Combines Sky Eagle (Tourism) and Kais Exchange (Education)
-   with parallax layers, staggered text reveals, magnetic CTAs,
-   and abstract earthy glass shapes.
-   
-   Design: Clean Minimalist / Scandinavian
-   Language: Kazakh (persuasive marketing copy)
-   Privacy: NO real contacts — all dummy data
+   Palette: Canvas #FCFCFA · Tourism #1E3A5F · Edu #C5A880
+   Typography: Inter · tracking-tight headings · leading-relaxed body
+   Animations: Framer Motion fade-up with stagger
+   Privacy: ALL links are # or +7 (000) 000-00-00
    ================================================================ */
 
 "use client";
@@ -15,32 +12,39 @@
 import { useState, useRef } from "react";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, Plane, GraduationCap, Globe, MapPin } from "lucide-react";
-import {
-  staggerSlow,
-  slideUp,
-  fadeIn,
-  scaleIn,
-  useMagnetic,
-} from "@/lib/animations";
+import { ArrowRight, Plane, GraduationCap, Globe, MapPin, Star, Users } from "lucide-react";
+import { useMagnetic } from "@/lib/animations";
 import type { ActiveBranch } from "@/lib/types";
 
-/* ─── Magnetic CTA Button ───────────────────────────────────── */
-function MagneticCTA({
+/* ── Animation Variants ───────────────────────────────────────── */
+const stagger = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.15, delayChildren: 0.1 } },
+};
+const fadeUp = {
+  hidden: { opacity: 0, y: 32 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] as const } },
+};
+const scaleIn = {
+  hidden: { opacity: 0, scale: 0.96 },
+  visible: { opacity: 1, scale: 1, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const } },
+};
+
+/* ── Magnetic CTA ─────────────────────────────────────────────── */
+function MagCTA({
   children,
   href,
-  variant = "accent",
+  variant,
 }: {
   children: React.ReactNode;
   href: string;
-  variant?: "accent" | "sage" | "outline";
+  variant: "tourism" | "edu" | "outline";
 }) {
-  const { ref, x, y } = useMagnetic({ strength: 0.25 });
-
+  const { ref, x, y } = useMagnetic({ strength: 0.2 });
   const styles = {
-    accent: "bg-accent text-white hover:bg-accent-hover shadow-[0_4px_24px_rgba(184,111,80,0.15)]",
-    sage: "bg-sage text-white hover:bg-sage-hover shadow-[0_4px_24px_rgba(124,140,110,0.15)]",
-    outline: "bg-transparent text-ink border border-border-strong hover:border-ink hover:bg-canvas-alt",
+    tourism: "bg-tourism text-white hover:bg-tourism-light shadow-[0_4px_20px_rgba(30,58,95,0.20)]",
+    edu: "bg-edu text-primary hover:bg-edu-dark hover:text-white shadow-[0_4px_20px_rgba(197,168,128,0.25)]",
+    outline: "bg-transparent text-primary border border-border-subtle hover:border-secondary hover:bg-surface",
   };
 
   return (
@@ -50,11 +54,7 @@ function MagneticCTA({
           whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.97 }}
           transition={{ type: "spring", stiffness: 400, damping: 25 }}
-          className={`
-            inline-flex items-center gap-3 px-8 py-4 rounded-2xl
-            text-[15px] font-semibold tracking-wide cursor-pointer
-            transition-colors duration-300 ${styles[variant]}
-          `}
+          className={`inline-flex items-center gap-3 px-8 py-4 rounded-2xl text-[15px] font-semibold cursor-pointer transition-colors duration-300 ${styles[variant]}`}
         >
           {children}
         </motion.span>
@@ -63,247 +63,259 @@ function MagneticCTA({
   );
 }
 
-/* ─── Main Hero Component ───────────────────────────────────── */
+/* ── Main Hero ────────────────────────────────────────────────── */
 export default function HeroSection() {
-  const [activeBranch, setActiveBranch] = useState<ActiveBranch>("tourism");
+  const [branch, setBranch] = useState<ActiveBranch>("tourism");
   const heroRef = useRef<HTMLElement>(null);
+  const isTourism = branch === "tourism";
 
-  /* Parallax scroll transforms */
   const { scrollYProgress } = useScroll({
     target: heroRef,
     offset: ["start start", "end start"],
   });
-
-  const parallaxSlow = useTransform(scrollYProgress, [0, 1], [0, -60]);
-  const parallaxMedium = useTransform(scrollYProgress, [0, 1], [0, -120]);
-  const parallaxText = useTransform(scrollYProgress, [0, 1], [0, -40]);
-  const opacityFade = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
-
-  const isTourism = activeBranch === "tourism";
+  const parallaxSlow = useTransform(scrollYProgress, [0, 1], [0, -50]);
+  const parallaxCard = useTransform(scrollYProgress, [0, 1], [0, -100]);
+  const parallaxText = useTransform(scrollYProgress, [0, 1], [0, -30]);
+  const opacityFade = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   return (
-    <section ref={heroRef} className="relative min-h-screen flex items-center overflow-hidden">
-      {/* ── Layer 0: Canvas ── */}
-      <div className="absolute inset-0 bg-canvas" />
+    <section ref={heroRef} className="relative min-h-screen flex items-center overflow-hidden bg-canvas">
+      {/* Dot grid — slowest parallax */}
+      <motion.div style={{ y: parallaxSlow }} className="absolute inset-0 dot-grid opacity-30" />
 
-      {/* ── Layer 1: Dot Grid (slow parallax) ── */}
-      <motion.div style={{ y: parallaxSlow }} className="absolute inset-0 dot-grid opacity-40" />
-
-      {/* ── Layer 2: Glass Shapes ── */}
+      {/* Decorative blurred shapes */}
       <AnimatePresence mode="wait">
-        {isTourism ? (
-          <motion.div
-            key="shapes-tour"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 1.2 }}
-            className="absolute inset-0 pointer-events-none"
-          >
-            <div className="absolute w-[500px] h-[500px] -top-32 -right-24 rounded-full opacity-25" style={{ background: "var(--accent-light)", filter: "blur(80px)" }} />
-            <div className="absolute w-[350px] h-[350px] bottom-20 left-[10%] rounded-full opacity-20" style={{ background: "var(--canvas-warm)", filter: "blur(80px)" }} />
-            <div className="absolute w-[200px] h-[200px] top-[40%] right-[30%] rounded-full opacity-15" style={{ background: "var(--accent-light)", filter: "blur(60px)" }} />
-          </motion.div>
-        ) : (
-          <motion.div
-            key="shapes-edu"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 1.2 }}
-            className="absolute inset-0 pointer-events-none"
-          >
-            <div className="absolute w-[500px] h-[500px] -top-32 -left-24 rounded-full opacity-25" style={{ background: "var(--sage-light)", filter: "blur(80px)" }} />
-            <div className="absolute w-[350px] h-[350px] bottom-20 right-[10%] rounded-full opacity-20" style={{ background: "var(--canvas-warm)", filter: "blur(80px)" }} />
-            <div className="absolute w-[200px] h-[200px] top-[35%] left-[25%] rounded-full opacity-15" style={{ background: "var(--sage-light)", filter: "blur(60px)" }} />
-          </motion.div>
-        )}
+        <motion.div
+          key={branch}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1 }}
+          className="absolute inset-0 pointer-events-none"
+        >
+          {isTourism ? (
+            <>
+              <div className="absolute w-[600px] h-[600px] -top-48 -right-32 rounded-full" style={{ background: "rgba(30,58,95,0.05)", filter: "blur(100px)" }} />
+              <div className="absolute w-[300px] h-[300px] bottom-24 left-[8%] rounded-full" style={{ background: "rgba(30,58,95,0.04)", filter: "blur(80px)" }} />
+            </>
+          ) : (
+            <>
+              <div className="absolute w-[600px] h-[600px] -top-48 -left-32 rounded-full" style={{ background: "rgba(197,168,128,0.08)", filter: "blur(100px)" }} />
+              <div className="absolute w-[300px] h-[300px] bottom-24 right-[8%] rounded-full" style={{ background: "rgba(197,168,128,0.06)", filter: "blur(80px)" }} />
+            </>
+          )}
+        </motion.div>
       </AnimatePresence>
 
-      {/* ── Layer 3: Content ── */}
+      {/* Content layer */}
       <motion.div
         style={{ y: parallaxText, opacity: opacityFade }}
         className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-32 w-full"
       >
-        {/* ── Toggle Switcher ── */}
-        <motion.div variants={fadeIn} initial="hidden" animate="visible" className="flex justify-center mb-20">
-          <div className="inline-flex items-center gap-1 p-1.5 rounded-full bg-canvas-elevated border border-border" style={{ boxShadow: "var(--shadow-md)" }}>
+        {/* ── Toggle ── */}
+        <motion.div variants={fadeUp} initial="hidden" animate="visible" className="flex justify-center mb-20">
+          <div className="inline-flex items-center gap-1 p-1.5 rounded-full bg-white border border-border-subtle" style={{ boxShadow: "var(--shadow-card)" }}>
             <button
-              onClick={() => setActiveBranch("tourism")}
-              className="relative flex items-center gap-2.5 px-7 py-3 rounded-full text-sm font-medium transition-colors duration-500 cursor-pointer"
+              onClick={() => setBranch("tourism")}
+              className="relative flex items-center gap-2.5 px-7 py-3 rounded-full text-sm font-semibold transition-colors duration-400 cursor-pointer"
             >
               {isTourism && (
                 <motion.div
-                  layoutId="hero-toggle"
-                  className="absolute inset-0 bg-accent rounded-full"
+                  layoutId="hero-pill"
+                  className="absolute inset-0 bg-tourism rounded-full"
                   transition={{ type: "spring", stiffness: 350, damping: 30 }}
                 />
               )}
-              <Plane className={`w-4 h-4 relative z-10 ${isTourism ? "text-white" : "text-ink-muted"}`} />
-              <span className={`relative z-10 tracking-wide ${isTourism ? "text-white" : "text-ink-muted"}`}>Саяхат</span>
+              <Plane className={`w-4 h-4 relative z-10 transition-colors duration-300 ${isTourism ? "text-white" : "text-secondary"}`} />
+              <span className={`relative z-10 transition-colors duration-300 ${isTourism ? "text-white" : "text-secondary"}`}>Туризм</span>
             </button>
 
             <button
-              onClick={() => setActiveBranch("education")}
-              className="relative flex items-center gap-2.5 px-7 py-3 rounded-full text-sm font-medium transition-colors duration-500 cursor-pointer"
+              onClick={() => setBranch("education")}
+              className="relative flex items-center gap-2.5 px-7 py-3 rounded-full text-sm font-semibold transition-colors duration-400 cursor-pointer"
             >
               {!isTourism && (
                 <motion.div
-                  layoutId="hero-toggle"
-                  className="absolute inset-0 bg-sage rounded-full"
+                  layoutId="hero-pill"
+                  className="absolute inset-0 bg-edu rounded-full"
                   transition={{ type: "spring", stiffness: 350, damping: 30 }}
                 />
               )}
-              <GraduationCap className={`w-4 h-4 relative z-10 ${!isTourism ? "text-white" : "text-ink-muted"}`} />
-              <span className={`relative z-10 tracking-wide ${!isTourism ? "text-white" : "text-ink-muted"}`}>Білім</span>
+              <GraduationCap className={`w-4 h-4 relative z-10 transition-colors duration-300 ${!isTourism ? "text-primary" : "text-secondary"}`} />
+              <span className={`relative z-10 transition-colors duration-300 ${!isTourism ? "text-primary" : "text-secondary"}`}>Шетелде оқу</span>
             </button>
           </div>
         </motion.div>
 
-        {/* ── Grid: Text + Visual Card ── */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-          {/* Left: Staggered Text */}
+        {/* ── Grid: Text + Card ── */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
+          {/* Left: Text */}
           <AnimatePresence mode="wait">
             <motion.div
-              key={activeBranch}
-              variants={staggerSlow}
+              key={branch}
+              variants={stagger}
               initial="hidden"
               animate="visible"
               exit="hidden"
-              className="max-w-xl"
+              className="max-w-lg"
             >
               {/* Overline */}
-              <motion.div variants={slideUp} className="mb-6">
-                <span className={`overline tracking-[0.15em] ${isTourism ? "text-accent" : "text-sage"}`}>
+              <motion.div variants={fadeUp} className="mb-5">
+                <span className="overline" style={{ color: isTourism ? "var(--tourism)" : "var(--edu-dark)" }}>
                   {isTourism ? "Sky Eagle Tourism" : "Kais Exchange Education"}
                 </span>
               </motion.div>
 
               {/* Headline */}
-              <motion.h1
-                variants={slideUp}
-                className="text-[clamp(2.5rem,5vw,4.2rem)] font-bold leading-[1.05] tracking-[-0.03em] text-ink mb-8"
-              >
+              <motion.h1 variants={fadeUp} className="text-[clamp(2.4rem,5vw,4rem)] font-extrabold tracking-tight text-primary mb-6" style={{ lineHeight: 1.08 }}>
                 {isTourism ? (
-                  <>Әлемді ашыңыз.<br /><span className="text-accent">Бір қадам</span> жеткілікті.</>
+                  <>Әлемді ашыңыз —<br /><span style={{ color: "var(--tourism)" }}>бір қадам</span> жеткілікті</>
                 ) : (
-                  <>Болашағыңызды<br /><span className="text-sage">шетелде</span> құрыңыз.</>
+                  <>Болашағыңызды<br /><span style={{ color: "var(--edu)" }}>шетелде</span> құрыңыз</>
                 )}
               </motion.h1>
 
               {/* Body */}
-              <motion.p variants={slideUp} className="text-lg text-ink-muted leading-relaxed mb-10 max-w-md" style={{ lineHeight: "1.8" }}>
+              <motion.p variants={fadeUp} className="text-[17px] text-secondary leading-relaxed mb-10 max-w-md">
                 {isTourism
-                  ? "Ішкі және халықаралық турлар, әуе билеттері, қонақ үй брондау мен трансфер — сіздің тынығуыңызды біз жоспарлаймыз."
-                  : "Малайзия мен Италияның үздік университеттеріне құжат дайындау, виза алу және толық сүйемелдеу — арманыңызға бірге жетеміз."}
+                  ? "Ішкі және халықаралық турлар, әуе билеттері, қонақ үй брондау мен трансфер қызметтері. Демалысыңызды біз жоспарлаймыз."
+                  : "Малайзия мен Италияның үздік университеттеріне толық сүйемелдеу: құжат дайындау, виза алу, тұрғын үй табу."}
               </motion.p>
 
-              {/* Stats */}
-              <motion.div variants={slideUp} className="flex items-center gap-8 mb-12">
+              {/* Stats row */}
+              <motion.div variants={fadeUp} className="flex items-center gap-8 mb-12">
                 {isTourism ? (
                   <>
-                    <div className="flex items-center gap-2 text-sm text-ink-muted">
-                      <MapPin className="w-4 h-4 text-accent" />
-                      <span><strong className="text-ink font-semibold">50+</strong> бағыт</span>
+                    <div className="flex items-center gap-2 text-sm text-secondary">
+                      <MapPin className="w-4 h-4" style={{ color: "var(--tourism)" }} />
+                      <span><strong className="text-primary font-semibold">50+</strong> бағыт</span>
                     </div>
-                    <div className="flex items-center gap-2 text-sm text-ink-muted">
-                      <Globe className="w-4 h-4 text-accent" />
-                      <span><strong className="text-ink font-semibold">10+</strong> ел</span>
+                    <div className="flex items-center gap-2 text-sm text-secondary">
+                      <Users className="w-4 h-4" style={{ color: "var(--tourism)" }} />
+                      <span><strong className="text-primary font-semibold">2 500+</strong> клиент</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm text-secondary">
+                      <Star className="w-4 h-4" style={{ color: "var(--tourism)" }} />
+                      <span><strong className="text-primary font-semibold">4.9</strong> рейтинг</span>
                     </div>
                   </>
                 ) : (
                   <>
-                    <div className="flex items-center gap-2 text-sm text-ink-muted">
-                      <GraduationCap className="w-4 h-4 text-sage" />
-                      <span><strong className="text-ink font-semibold">12</strong> университет</span>
+                    <div className="flex items-center gap-2 text-sm text-secondary">
+                      <GraduationCap className="w-4 h-4" style={{ color: "var(--edu)" }} />
+                      <span><strong className="text-primary font-semibold">12</strong> университет</span>
                     </div>
-                    <div className="flex items-center gap-2 text-sm text-ink-muted">
-                      <Globe className="w-4 h-4 text-sage" />
-                      <span><strong className="text-ink font-semibold">2</strong> ел</span>
+                    <div className="flex items-center gap-2 text-sm text-secondary">
+                      <Globe className="w-4 h-4" style={{ color: "var(--edu)" }} />
+                      <span><strong className="text-primary font-semibold">2</strong> ел</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm text-secondary">
+                      <Users className="w-4 h-4" style={{ color: "var(--edu)" }} />
+                      <span><strong className="text-primary font-semibold">350+</strong> студент</span>
                     </div>
                   </>
                 )}
               </motion.div>
 
-              {/* Magnetic CTAs */}
-              <motion.div variants={slideUp} className="flex flex-wrap gap-4">
+              {/* CTAs */}
+              <motion.div variants={fadeUp} className="flex flex-wrap gap-4">
                 {isTourism ? (
                   <>
-                    <MagneticCTA href="/tourism" variant="accent">Турларды қарау <ArrowRight className="w-4 h-4" /></MagneticCTA>
-                    <MagneticCTA href="/tourism" variant="outline">Билет іздеу</MagneticCTA>
+                    <MagCTA href="/tourism" variant="tourism">Турларды қарау <ArrowRight className="w-4 h-4" /></MagCTA>
+                    <MagCTA href="#" variant="outline">Билет іздеу</MagCTA>
                   </>
                 ) : (
                   <>
-                    <MagneticCTA href="/education" variant="sage">Университеттерді қарау <ArrowRight className="w-4 h-4" /></MagneticCTA>
-                    <MagneticCTA href="/education" variant="outline">Тегін кеңес алу</MagneticCTA>
+                    <MagCTA href="/education" variant="edu">Университеттер <ArrowRight className="w-4 h-4" /></MagCTA>
+                    <MagCTA href="#" variant="outline">Тегін кеңес</MagCTA>
                   </>
                 )}
               </motion.div>
             </motion.div>
           </AnimatePresence>
 
-          {/* Right: Visual Preview Card */}
+          {/* Right: Preview card */}
           <div className="hidden lg:block">
-            <motion.div style={{ y: parallaxMedium }}>
+            <motion.div style={{ y: parallaxCard }}>
               <AnimatePresence mode="wait">
                 {isTourism ? (
-                  <motion.div key="vcard-tour" variants={scaleIn} initial="hidden" animate="visible" exit="hidden" className="relative">
-                    <div className="absolute -top-8 -right-8 w-72 h-72 rounded-full opacity-20" style={{ background: "var(--accent-light)", filter: "blur(60px)" }} />
+                  <motion.div key="tour-card" variants={scaleIn} initial="hidden" animate="visible" exit="hidden" className="relative">
+                    {/* Glow behind */}
+                    <div className="absolute -top-10 -right-10 w-80 h-80 rounded-full" style={{ background: "rgba(30,58,95,0.06)", filter: "blur(70px)" }} />
+
                     <div className="relative card-elevated p-10 max-w-md ml-auto">
                       <div className="flex items-center gap-4 mb-8">
-                        <div className="w-14 h-14 rounded-2xl bg-accent-subtle flex items-center justify-center"><Plane className="w-6 h-6 text-accent" /></div>
+                        <div className="w-14 h-14 rounded-2xl flex items-center justify-center" style={{ background: "var(--tourism-wash)" }}>
+                          <Plane className="w-6 h-6" style={{ color: "var(--tourism)" }} />
+                        </div>
                         <div>
-                          <p className="text-base font-semibold text-ink">Анталия демалысы</p>
-                          <p className="text-sm text-ink-faint">7 күн · All Inclusive</p>
+                          <p className="text-base font-semibold text-primary">Анталия демалысы</p>
+                          <p className="text-sm text-secondary">7 күн · All Inclusive</p>
                         </div>
                       </div>
-                      <div className="space-y-3 mb-8">
-                        <div className="flex items-center gap-3"><div className="w-2 h-2 rounded-full bg-accent" /><span className="text-sm text-ink-muted">5★ қонақ үй · Трансфер кіреді</span></div>
-                        <div className="flex items-center gap-3"><div className="w-2 h-2 rounded-full bg-accent opacity-60" /><span className="text-sm text-ink-muted">Әуе билеті · Сақтандыру</span></div>
-                        <div className="flex items-center gap-3"><div className="w-2 h-2 rounded-full bg-accent opacity-30" /><span className="text-sm text-ink-muted">Экскурсиялар · Гид қызметі</span></div>
+                      <div className="space-y-3.5 mb-8">
+                        {["5★ қонақ үй · Трансфер", "Әуе билеті · Сақтандыру", "Экскурсиялар · Гид"].map((item, i) => (
+                          <div key={i} className="flex items-center gap-3">
+                            <div className="w-1.5 h-1.5 rounded-full" style={{ background: "var(--tourism)", opacity: 1 - i * 0.25 }} />
+                            <span className="text-sm text-secondary">{item}</span>
+                          </div>
+                        ))}
                       </div>
-                      <div className="flex items-end justify-between pt-6 border-t border-border">
+                      <div className="flex items-end justify-between pt-6 border-t border-border-subtle">
                         <div>
-                          <p className="text-xs text-ink-faint uppercase tracking-widest">Бағасы</p>
-                          <p className="text-3xl font-bold text-accent tracking-tight">320 000 ₸</p>
+                          <p className="text-[11px] text-secondary-faint uppercase tracking-widest mb-1">Бағасы</p>
+                          <p className="text-3xl font-bold tracking-tight" style={{ color: "var(--tourism)" }}>320 000 ₸</p>
                         </div>
-                        <span className="px-5 py-2.5 rounded-xl bg-accent text-white text-sm font-medium">Брондау</span>
+                        <span className="px-5 py-2.5 rounded-xl text-white text-sm font-semibold" style={{ background: "var(--tourism)" }}>Брондау</span>
                       </div>
                     </div>
-                    <motion.div animate={{ y: [-6, 6, -6] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }} className="absolute -bottom-6 -left-6 card-elevated p-5 w-56">
+
+                    {/* Floating mini card */}
+                    <motion.div animate={{ y: [-5, 5, -5] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }} className="absolute -bottom-5 -left-4 card-elevated p-4 w-52">
                       <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-xl bg-canvas-warm flex items-center justify-center"><MapPin className="w-5 h-5 text-ink-muted" /></div>
-                        <div><p className="text-xs text-ink-faint">Келесі тур</p><p className="text-sm font-semibold text-ink">Дубай · 5 күн</p></div>
+                        <div className="w-9 h-9 rounded-xl bg-surface flex items-center justify-center"><MapPin className="w-4 h-4 text-secondary" /></div>
+                        <div><p className="text-[11px] text-secondary-faint">Келесі тур</p><p className="text-sm font-semibold text-primary">Дубай · 5 күн</p></div>
                       </div>
                     </motion.div>
                   </motion.div>
                 ) : (
-                  <motion.div key="vcard-edu" variants={scaleIn} initial="hidden" animate="visible" exit="hidden" className="relative">
-                    <div className="absolute -top-8 -left-8 w-72 h-72 rounded-full opacity-20" style={{ background: "var(--sage-light)", filter: "blur(60px)" }} />
+                  <motion.div key="edu-card" variants={scaleIn} initial="hidden" animate="visible" exit="hidden" className="relative">
+                    <div className="absolute -top-10 -left-10 w-80 h-80 rounded-full" style={{ background: "rgba(197,168,128,0.08)", filter: "blur(70px)" }} />
+
                     <div className="relative card-elevated p-10 max-w-md ml-auto">
                       <div className="flex items-center gap-4 mb-8">
-                        <div className="w-14 h-14 rounded-2xl bg-sage-subtle flex items-center justify-center"><GraduationCap className="w-6 h-6 text-sage" /></div>
+                        <div className="w-14 h-14 rounded-2xl flex items-center justify-center" style={{ background: "var(--edu-wash)" }}>
+                          <GraduationCap className="w-6 h-6" style={{ color: "var(--edu-dark)" }} />
+                        </div>
                         <div>
-                          <p className="text-base font-semibold text-ink">Politecnico di Milano</p>
-                          <p className="text-sm text-ink-faint">Милан, Италия · QS #111</p>
+                          <p className="text-base font-semibold text-primary">Politecnico di Milano</p>
+                          <p className="text-sm text-secondary">Милан, Италия · QS #111</p>
                         </div>
                       </div>
                       <div className="space-y-4 mb-8">
-                        <div className="flex items-center justify-between text-sm"><span className="text-ink-muted">Мамандық</span><span className="text-ink font-medium">Инженерия · Дизайн</span></div>
-                        <div className="h-px bg-border" />
-                        <div className="flex items-center justify-between text-sm"><span className="text-ink-muted">Оқу ақысы</span><span className="text-ink font-medium">$2,000 – $4,000/жыл</span></div>
-                        <div className="h-px bg-border" />
-                        <div className="flex items-center justify-between text-sm"><span className="text-ink-muted">Қабылдау</span><span className="text-sage font-medium">Қыркүйек 2026</span></div>
+                        {[["Мамандық", "Инженерия · Дизайн"], ["Оқу ақысы", "$2,000 – $4,000/жыл"], ["Қабылдау", "Қыркүйек 2026"]].map(([label, value], i) => (
+                          <div key={i}>
+                            <div className="flex items-center justify-between text-sm">
+                              <span className="text-secondary">{label}</span>
+                              <span className="text-primary font-medium" style={i === 2 ? { color: "var(--edu-dark)" } : {}}>{value}</span>
+                            </div>
+                            {i < 2 && <div className="h-px bg-border-subtle mt-4" />}
+                          </div>
+                        ))}
                       </div>
-                      <div className="flex items-center justify-between pt-6 border-t border-border">
-                        <div className="flex gap-2"><span className="pill pill-sage">🇮🇹 Италия</span><span className="pill pill-neutral">3 жыл</span></div>
-                        <span className="px-5 py-2.5 rounded-xl bg-sage text-white text-sm font-medium">Толығырақ</span>
+                      <div className="flex items-center justify-between pt-6 border-t border-border-subtle">
+                        <div className="flex gap-2">
+                          <span className="pill pill-sage">🇮🇹 Италия</span>
+                          <span className="pill pill-neutral">3 жыл</span>
+                        </div>
+                        <span className="px-5 py-2.5 rounded-xl text-primary text-sm font-semibold" style={{ background: "var(--edu)" }}>Толығырақ</span>
                       </div>
                     </div>
-                    <motion.div animate={{ y: [-6, 6, -6] }} transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }} className="absolute -bottom-6 -left-6 card-elevated p-5 w-60">
+
+                    <motion.div animate={{ y: [-5, 5, -5] }} transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }} className="absolute -bottom-5 -left-4 card-elevated p-4 w-56">
                       <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-xl bg-sage-subtle flex items-center justify-center"><GraduationCap className="w-5 h-5 text-sage" /></div>
-                        <div><p className="text-xs text-ink-faint">Тағы бір нұсқа</p><p className="text-sm font-semibold text-ink">UTM · Малайзия</p></div>
+                        <div className="w-9 h-9 rounded-xl flex items-center justify-center" style={{ background: "var(--edu-wash)" }}><GraduationCap className="w-4 h-4" style={{ color: "var(--edu-dark)" }} /></div>
+                        <div><p className="text-[11px] text-secondary-faint">Тағы бір нұсқа</p><p className="text-sm font-semibold text-primary">UTM · Малайзия</p></div>
                       </div>
                     </motion.div>
                   </motion.div>
@@ -314,8 +326,8 @@ export default function HeroSection() {
         </div>
       </motion.div>
 
-      {/* ── Bottom Fade ── */}
-      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-canvas to-transparent pointer-events-none z-20" />
+      {/* Bottom fade */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-canvas to-transparent pointer-events-none z-20" />
     </section>
   );
 }
