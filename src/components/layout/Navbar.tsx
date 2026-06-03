@@ -188,11 +188,11 @@ export default function Navbar() {
 
               {/* Phone CTA */}
               <a
-                href="tel:+77001234567"
+                href="#"
                 className="flex items-center gap-2 text-sm text-foreground-muted hover:text-foreground transition-colors"
               >
                 <Phone className="w-4 h-4" />
-                <span className="hidden lg:inline">+7 700 123 45 67</span>
+                <span className="hidden lg:inline">+7 (777) 000-00-00</span>
               </a>
             </div>
 
@@ -289,11 +289,11 @@ export default function Navbar() {
 
                 {/* Phone */}
                 <a
-                  href="tel:+77001234567"
+                  href="#"
                   className="flex items-center gap-2 px-4 py-3 text-foreground-muted hover:text-foreground"
                 >
                   <Phone className="w-4 h-4" />
-                  +7 700 123 45 67
+                  +7 (777) 000-00-00
                 </a>
               </div>
             </motion.div>

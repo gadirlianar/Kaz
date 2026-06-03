@@ -53,7 +53,7 @@ export default function Footer() {
             {/* Social icons */}
             <div className="flex items-center gap-3">
               <a
-                href="https://instagram.com"
+                href="#"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-lg bg-glass-bg border border-glass-border flex items-center justify-center text-foreground-muted hover:text-pink-400 hover:border-pink-400/30 transition-all duration-300"
@@ -62,7 +62,7 @@ export default function Footer() {
                 <Camera className="w-4 h-4" />
               </a>
               <a
-                href="https://t.me"
+                href="#"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-lg bg-glass-bg border border-glass-border flex items-center justify-center text-foreground-muted hover:text-sky-400 hover:border-sky-400/30 transition-all duration-300"
@@ -71,7 +71,7 @@ export default function Footer() {
                 <Send className="w-4 h-4" />
               </a>
               <a
-                href="https://wa.me"
+                href="#"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-lg bg-glass-bg border border-glass-border flex items-center justify-center text-foreground-muted hover:text-green-400 hover:border-green-400/30 transition-all duration-300"
@@ -142,24 +142,24 @@ export default function Footer() {
             <ul className="space-y-4">
               <li>
                 <a
-                  href="tel:+77001234567"
+                  href="#"
                   className="flex items-start gap-3 text-sm text-foreground-muted hover:text-foreground transition-colors group"
                 >
                   <Phone className="w-4 h-4 mt-0.5 text-sky-400 group-hover:text-sky-300" />
                   <div>
-                    <p className="font-medium text-foreground">+7 700 123 45 67</p>
+                    <p className="font-medium text-foreground">+7 (777) 000-00-00</p>
                     <p className="text-xs">Дүйсенбі – Жұма, 09:00 – 18:00</p>
                   </div>
                 </a>
               </li>
               <li>
                 <a
-                  href="mailto:info@aysanii.kz"
+                  href="#"
                   className="flex items-start gap-3 text-sm text-foreground-muted hover:text-foreground transition-colors group"
                 >
                   <Mail className="w-4 h-4 mt-0.5 text-kais-400 group-hover:text-kais-300" />
                   <div>
-                    <p className="font-medium text-foreground">info@aysanii.kz</p>
+                    <p className="font-medium text-foreground">info@example.kz</p>
                     <p className="text-xs">Кез-келген сұрағыңызды жіберіңіз</p>
                   </div>
                 </a>
