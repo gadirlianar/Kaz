@@ -8,7 +8,7 @@ import TourSearch from "@/components/tourism/TourSearch";
 import PageTransition from "@/components/layout/PageTransition";
 
 export const metadata: Metadata = {
-  title: "Турлар мен Билеттер | Sky Eagle — Aysanii",
+  title: "Турлар мен Билеттер | Sky Eagle — Ayshan",
   description:
     "Ішкі және халықаралық турлар, әуе билеттері, қонақ үй брондау және трансфер қызметі. Sky Eagle — сіздің сенімді саяхат серіктесіңіз.",
 };

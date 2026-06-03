@@ -1,5 +1,5 @@
 /* ============================================================
-   AYSANII — TypeScript Type Definitions
+   AYSHAN — TypeScript Type Definitions
    Covers both Sky Eagle (Tourism) and Kais Exchange (Education)
    ============================================================ */
 

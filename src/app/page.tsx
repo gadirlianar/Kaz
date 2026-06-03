@@ -1,5 +1,5 @@
 /* ============================================================
-   Landing Page — Aysanii Home
+   Landing Page — Ayshan Home
    Assembles the Hero, Services, Popular Tours, Stats,
    Testimonials, and Partners sections.
    ============================================================ */

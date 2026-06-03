@@ -1,5 +1,5 @@
 /* ================================================================
-   Root Layout — Aysanii
+   Root Layout — Ayshan
    
    Typography: Outfit (geometric sans-serif — modern, warm, wide)
    Language: kk (Kazakh)
@@ -29,7 +29,7 @@ const geistMono = Geist_Mono({
 
 /* ── SEO Metadata (Kazakh) ── */
 export const metadata: Metadata = {
-  title: "Aysanii — Саяхат пен білімге жол ашамыз",
+  title: "Ayshan — Саяхат пен білімге жол ашамыз",
   description:
     "Sky Eagle туризм — ішкі және халықаралық турлар, билеттер, қонақ үйлер. Kais Exchange — Малайзия мен Италия университеттерінде оқу мүмкіндіктері. Бір платформа, екі бағыт.",
   keywords: [
@@ -40,15 +40,15 @@ export const metadata: Metadata = {
     "әуе билеттері",
     "Sky Eagle",
     "Kais Exchange",
-    "Aysanii",
+    "Ayshan",
   ],
   openGraph: {
-    title: "Aysanii — Саяхат пен білімге жол ашамыз",
+    title: "Ayshan — Саяхат пен білімге жол ашамыз",
     description:
       "Турлар мен шетелде оқу — барлығы бір жерде. Sky Eagle & Kais Exchange.",
     type: "website",
     locale: "kk_KZ",
-    siteName: "Aysanii",
+    siteName: "Ayshan",
   },
 };
 

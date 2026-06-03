@@ -38,7 +38,7 @@ export default function Footer() {
                 <span className="text-white font-bold text-lg">A</span>
               </div>
               <div>
-                <h3 className="text-lg font-bold text-foreground">Aysanii</h3>
+                <h3 className="text-lg font-bold text-foreground">Ayshan</h3>
                 <p className="text-xs text-foreground-muted">
                   Sky Eagle & Kais Exchange
                 </p>
@@ -180,7 +180,7 @@ export default function Footer() {
         {/* ── Bottom Bar ── */}
         <div className="mt-12 pt-8 border-t border-glass-border flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-foreground-muted">
-            © {new Date().getFullYear()} Aysanii. Барлық құқықтар қорғалған.
+            © {new Date().getFullYear()} Ayshan. Барлық құқықтар қорғалған.
           </p>
           <div className="flex items-center gap-6">
             <Link

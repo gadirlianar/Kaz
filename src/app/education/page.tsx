@@ -9,7 +9,7 @@ import ProcessSteps from "@/components/education/ProcessSteps";
 import PageTransition from "@/components/layout/PageTransition";
 
 export const metadata: Metadata = {
-  title: "Шетелде Оқу — Университеттер | Kais Exchange — Aysanii",
+  title: "Шетелде Оқу — Университеттер | Kais Exchange — Ayshan",
   description:
     "Малайзия мен Италияның үздік университеттерінде оқу. Құжат дайындау, виза қолдауы, толық сүйемелдеу. Kais Exchange — шетелде білім алудың сенімді жолы.",
 };

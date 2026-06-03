@@ -1,5 +1,5 @@
 /* ============================================================
-   AYSANII — Partner Logos Dataset
+   AYSHAN — Partner Logos Dataset
    University and travel industry partners for the marquee.
    ============================================================ */
 

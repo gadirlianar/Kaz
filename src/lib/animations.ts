@@ -1,5 +1,5 @@
 /* ================================================================
-   AYSANII — Framer Motion Animation System
+   AYSHAN — Framer Motion Animation System
    
    Centralized animation variants, scroll utilities, and
    interaction primitives. Every animation feels unhurried,

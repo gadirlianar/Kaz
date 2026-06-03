@@ -1,5 +1,5 @@
 /* ============================================================
-   AYSANII — Universities API Route
+   AYSHAN — Universities API Route
    Simulates a relational database connection with full filtering.
    Supports query params: country, faculty, priceRange, q (search)
    ============================================================ */

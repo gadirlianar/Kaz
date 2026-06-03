@@ -98,7 +98,7 @@ export default function Navbar() {
               </motion.div>
               <div className="flex flex-col">
                 <span className="text-lg font-bold text-foreground leading-tight">
-                  Aysanii
+                  Ayshan
                 </span>
                 <span className="text-[10px] text-foreground-muted leading-tight tracking-wider uppercase">
                   {activeBranch === "tourism"

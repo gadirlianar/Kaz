@@ -1,5 +1,5 @@
 /* ============================================================
-   AYSANII — Utility Functions
+   AYSHAN — Utility Functions
    Shared helpers for formatting, filtering, and data transforms
    ============================================================ */
 

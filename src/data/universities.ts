@@ -1,5 +1,5 @@
 /* ============================================================
-   AYSANII — University Dataset (Malaysia + Italy)
+   AYSHAN — University Dataset (Malaysia + Italy)
    Simulated relational data for the Kais Exchange branch.
    All content in Kazakh language where applicable.
    ============================================================ */
