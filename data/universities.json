@@ -1,0 +1,97 @@
+[
+  {
+    "id": "monash-malaysia",
+    "name": "Monash University Malaysia",
+    "city": "Селангор",
+    "faculties": [
+      "Бизнес",
+      "Инженерия",
+      "Ақпараттық технологиялар",
+      "Медицина және денсаулық сақтау",
+      "Өнер және әлеуметтік ғылымдар"
+    ],
+    "bachelorIntake": "Ақпан, Шілде, Қазан",
+    "duration": "3-4 жыл",
+    "applicationFeeRM": 100,
+    "studyFeeRM": 48000
+  },
+  {
+    "id": "sunway-university",
+    "name": "Sunway University",
+    "city": "Селангор",
+    "faculties": [
+      "Бизнес",
+      "Компьютерлік технологиялар",
+      "Өнер",
+      "Ғылым және технология",
+      "Қонақжайлылық және қызмет көрсету"
+    ],
+    "bachelorIntake": "Қаңтар, Наурыз, Тамыз",
+    "duration": "3 жыл",
+    "applicationFeeRM": 700,
+    "studyFeeRM": 32000
+  },
+  {
+    "id": "inti-university",
+    "name": "INTI International University",
+    "city": "Нилаи",
+    "faculties": [
+      "Бизнес",
+      "Ақпараттық технологиялар",
+      "Инженерия",
+      "Дизайн",
+      "Денсаулық сақтау"
+    ],
+    "bachelorIntake": "Қаңтар, Мамыр, Тамыз",
+    "duration": "3 жыл",
+    "applicationFeeRM": 550,
+    "studyFeeRM": 24000
+  },
+  {
+    "id": "segi-university",
+    "name": "SEGi University",
+    "city": "Петалинг Джая",
+    "faculties": [
+      "Медицина және стоматология",
+      "Бизнес және бухгалтерлік есеп",
+      "Инженерия және IT",
+      "Креативті өнер және дизайн",
+      "Педагогика"
+    ],
+    "bachelorIntake": "Қаңтар, Сәуір, Шілде, Қазан",
+    "duration": "3-4 жыл",
+    "applicationFeeRM": 600,
+    "studyFeeRM": 20000
+  },
+  {
+    "id": "help-university",
+    "name": "HELP University",
+    "city": "Куала-Лумпур",
+    "faculties": [
+      "Психология",
+      "Бизнес",
+      "Ақпараттық технологиялар",
+      "Құрылымдық және қолданбалы ғылымдар",
+      "Педагогика"
+    ],
+    "bachelorIntake": "Қаңтар, Наурыз, Мамыр, Тамыз",
+    "duration": "3 жыл",
+    "applicationFeeRM": 500,
+    "studyFeeRM": 22000
+  },
+  {
+    "id": "apu-university",
+    "name": "Asia Pacific University (APU)",
+    "city": "Куала-Лумпур",
+    "faculties": [
+      "Ақпараттық технологиялар және киберқауіпсіздік",
+      "Бизнес және менеджмент",
+      "Инженерия",
+      "Сандық медиа және дизайн"
+    ],
+    "bachelorIntake": "Ақпан, Шілде, Қараша",
+    "duration": "3 жыл",
+    "applicationFeeRM": 800,
+    "studyFeeRM": 29000
+  }
+]

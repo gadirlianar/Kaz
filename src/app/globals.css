@@ -179,8 +179,11 @@
   --color-glass-highlight: var(--glass-highlight);
 
   /* Fonts */
-  --font-sans: var(--font-inter);
+  --font-sans: var(--font-plus-jakarta), var(--font-inter), sans-serif;
   --font-mono: var(--font-geist-mono);
+  --font-clash-display: var(--font-outfit), sans-serif;
+  --font-plus-jakarta: var(--font-plus-jakarta), sans-serif;
+  --font-manrope: var(--font-manrope), sans-serif;
 
   /* Animations */
   --animate-fade-in:    fade-in 0.7s var(--ease-out) both;
@@ -203,7 +206,7 @@ html {
 body {
   background-color: var(--canvas);
   color: var(--secondary);
-  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+  font-family: var(--font-plus-jakarta), var(--font-manrope), var(--font-sans), system-ui, -apple-system, sans-serif;
   font-size: 16px;
   line-height: 1.7;
   letter-spacing: -0.01em;
@@ -215,6 +218,7 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.12;
   letter-spacing: -0.03em;
   font-weight: 700;
+  font-family: var(--font-clash-display), var(--font-sans), sans-serif;
 }
 
 ::selection {
