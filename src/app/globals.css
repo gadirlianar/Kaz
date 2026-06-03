@@ -1,0 +1,393 @@
+@import "tailwindcss";
+
+/* ================================================================
+   AYSANII — Clean Minimalist Design System
+   Aesthetic: Scandinavian · Earthy · Sand Tones
+   
+   This file provides BOTH the new earthy palette AND backward-
+   compatible mappings so all existing components render correctly
+   with the warm minimalist aesthetic.
+   ================================================================ */
+
+:root {
+  /* ── New Earthy Canvas ─────────────────────────────────────── */
+  --canvas:          #FAFAF7;
+  --canvas-alt:      #F3EDE6;
+  --canvas-warm:     #EAE3D9;
+  --canvas-elevated: #FFFFFF;
+
+  /* ── New Earthy Ink ────────────────────────────────────────── */
+  --ink:             #1C1917;
+  --ink-secondary:   #44403C;
+  --ink-muted:       #78716C;
+  --ink-faint:       #A8A29E;
+
+  /* ── Accent: Terracotta / Warm Clay ────────────────────────── */
+  --accent:          #B86F50;
+  --accent-hover:    #9C5C3F;
+  --accent-light:    #F2DDD0;
+  --accent-subtle:   #FBF3EE;
+
+  /* ── Sage: Education Secondary ─────────────────────────────── */
+  --sage:            #7C8C6E;
+  --sage-hover:      #64745A;
+  --sage-light:      #D9E2D0;
+  --sage-subtle:     #F2F5EE;
+
+  /* ── Surface & Borders ─────────────────────────────────────── */
+  --border:          #E7E2DB;
+  --border-hover:    #D6CFC6;
+  --border-strong:   #C4BCB1;
+
+  /* ── Shadows ───────────────────────────────────────────────── */
+  --shadow-sm:       0 1px 2px rgba(28, 25, 23, 0.03);
+  --shadow-md:       0 4px 16px rgba(28, 25, 23, 0.05);
+  --shadow-lg:       0 8px 32px rgba(28, 25, 23, 0.07);
+  --shadow-xl:       0 16px 48px rgba(28, 25, 23, 0.09);
+  --shadow-hover:    0 12px 40px rgba(28, 25, 23, 0.08);
+
+  /* ── Timing ────────────────────────────────────────────────── */
+  --ease-out:        cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out:     cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ══════════════════════════════════════════════════════════════
+     BACKWARD-COMPATIBLE MAPPINGS
+     Maps old dark-theme token names → new earthy palette
+     so all 30+ existing components render correctly.
+     ══════════════════════════════════════════════════════════════ */
+
+  /* Old base tokens → warm canvas */
+  --background:           #FAFAF7;
+  --background-secondary: #F3EDE6;
+  --foreground:           #1C1917;
+  --foreground-muted:     #78716C;
+
+  /* Old Sky Eagle (blue) → Terracotta accent */
+  --sky-50:  #FBF3EE;
+  --sky-100: #F2DDD0;
+  --sky-200: #E8C7B3;
+  --sky-300: #D4A68A;
+  --sky-400: #C4876A;
+  --sky-500: #B86F50;
+  --sky-600: #9C5C3F;
+  --sky-700: #7E4A33;
+  --sky-800: #633B29;
+  --sky-900: #4A2C1E;
+
+  /* Old Kais Exchange (violet) → Sage green */
+  --kais-50:  #F2F5EE;
+  --kais-100: #D9E2D0;
+  --kais-200: #C0CFB2;
+  --kais-300: #A3B892;
+  --kais-400: #8FA47D;
+  --kais-500: #7C8C6E;
+  --kais-600: #64745A;
+  --kais-700: #4E5C46;
+  --kais-800: #3A4534;
+  --kais-900: #282F24;
+
+  /* Old Gold → Warm amber */
+  --gold-400: #D4A574;
+  --gold-500: #C4916A;
+  --gold-600: #A87A56;
+
+  /* Old Glass tokens → warm semi-transparent */
+  --glass-bg:        rgba(255, 255, 255, 0.7);
+  --glass-border:    rgba(231, 226, 219, 0.8);
+  --glass-highlight: rgba(255, 255, 255, 0.5);
+}
+
+/* ── Tailwind v4 @theme ──────────────────────────────────────── */
+@theme inline {
+  /* New palette */
+  --color-canvas:          var(--canvas);
+  --color-canvas-alt:      var(--canvas-alt);
+  --color-canvas-warm:     var(--canvas-warm);
+  --color-canvas-elevated: var(--canvas-elevated);
+  --color-ink:             var(--ink);
+  --color-ink-secondary:   var(--ink-secondary);
+  --color-ink-muted:       var(--ink-muted);
+  --color-ink-faint:       var(--ink-faint);
+  --color-accent:          var(--accent);
+  --color-accent-hover:    var(--accent-hover);
+  --color-accent-light:    var(--accent-light);
+  --color-accent-subtle:   var(--accent-subtle);
+  --color-sage:            var(--sage);
+  --color-sage-hover:      var(--sage-hover);
+  --color-sage-light:      var(--sage-light);
+  --color-sage-subtle:     var(--sage-subtle);
+  --color-border:          var(--border);
+  --color-border-hover:    var(--border-hover);
+  --color-border-strong:   var(--border-strong);
+
+  /* Backward-compatible: old base */
+  --color-background:           var(--background);
+  --color-background-secondary: var(--background-secondary);
+  --color-foreground:           var(--foreground);
+  --color-foreground-muted:     var(--foreground-muted);
+
+  /* Backward-compatible: sky (now terracotta) */
+  --color-sky-50:  var(--sky-50);
+  --color-sky-100: var(--sky-100);
+  --color-sky-200: var(--sky-200);
+  --color-sky-300: var(--sky-300);
+  --color-sky-400: var(--sky-400);
+  --color-sky-500: var(--sky-500);
+  --color-sky-600: var(--sky-600);
+  --color-sky-700: var(--sky-700);
+  --color-sky-800: var(--sky-800);
+  --color-sky-900: var(--sky-900);
+
+  /* Backward-compatible: kais (now sage) */
+  --color-kais-50:  var(--kais-50);
+  --color-kais-100: var(--kais-100);
+  --color-kais-200: var(--kais-200);
+  --color-kais-300: var(--kais-300);
+  --color-kais-400: var(--kais-400);
+  --color-kais-500: var(--kais-500);
+  --color-kais-600: var(--kais-600);
+  --color-kais-700: var(--kais-700);
+  --color-kais-800: var(--kais-800);
+  --color-kais-900: var(--kais-900);
+
+  /* Backward-compatible: gold (now warm amber) */
+  --color-gold-400: var(--gold-400);
+  --color-gold-500: var(--gold-500);
+  --color-gold-600: var(--gold-600);
+
+  /* Backward-compatible: glass */
+  --color-glass-bg:        var(--glass-bg);
+  --color-glass-border:    var(--glass-border);
+  --color-glass-highlight: var(--glass-highlight);
+
+  /* Fonts */
+  --font-sans: var(--font-outfit);
+  --font-mono: var(--font-geist-mono);
+
+  /* Animations */
+  --animate-fade-in:    fade-in 0.7s var(--ease-out) both;
+  --animate-slide-up:   slide-up 0.7s var(--ease-out) both;
+  --animate-slide-down: slide-down 0.5s var(--ease-out) both;
+  --animate-marquee:    marquee 40s linear infinite;
+  --animate-float:      float 8s ease-in-out infinite;
+  --animate-float-delayed: float 8s ease-in-out 4s infinite;
+  --animate-pulse-glow: pulse-glow 3s ease-in-out infinite;
+  --animate-gradient-shift: gradient-shift 8s ease infinite;
+}
+
+/* ── Base Styles ─────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--canvas);
+  color: var(--ink-secondary);
+  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  letter-spacing: -0.01em;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--ink);
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  font-weight: 600;
+}
+
+::selection {
+  background: var(--accent-light);
+  color: var(--ink);
+}
+
+/* ── Scrollbar ───────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border-hover); border-radius: 9999px; }
+::-webkit-scrollbar-thumb:hover { background: var(--border-strong); }
+
+/* ── Glass Card (remapped to warm light glass) ───────────────── */
+.glass-card {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: var(--shadow-md);
+}
+.glass-card-hover {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.glass-card-hover:hover {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: var(--border-hover);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* ── Card Elevated ───────────────────────────────────────────── */
+.card-elevated {
+  background: var(--canvas-elevated);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  box-shadow: var(--shadow-md);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.card-elevated:hover {
+  box-shadow: var(--shadow-hover);
+  border-color: var(--border-hover);
+  transform: translateY(-3px);
+}
+
+/* ── Gradient Text (remapped to earthy tones) ────────────────── */
+.gradient-text-sky {
+  background: linear-gradient(135deg, var(--accent), #D4A68A);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.gradient-text-kais {
+  background: linear-gradient(135deg, var(--sage), #A3B892);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.gradient-text-gold {
+  background: linear-gradient(135deg, var(--gold-500), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.text-accent-gradient {
+  background: linear-gradient(135deg, var(--accent), var(--sage));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Animated Gradient Backgrounds (softened) ────────────────── */
+.animated-gradient-sky {
+  background: linear-gradient(-45deg, var(--accent-subtle), var(--canvas), var(--accent-light), var(--canvas-alt));
+  background-size: 400% 400%;
+  animation: gradient-shift 8s ease infinite;
+}
+.animated-gradient-kais {
+  background: linear-gradient(-45deg, var(--sage-subtle), var(--canvas), var(--sage-light), var(--canvas-alt));
+  background-size: 400% 400%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+/* ── Glow Effects (very subtle warm glows) ───────────────────── */
+.glow-sky {
+  box-shadow: 0 0 30px rgba(184, 111, 80, 0.08), 0 0 60px rgba(184, 111, 80, 0.03);
+}
+.glow-kais {
+  box-shadow: 0 0 30px rgba(124, 140, 110, 0.08), 0 0 60px rgba(124, 140, 110, 0.03);
+}
+
+/* ── Orbs (warm, subtle decorative blobs) ────────────────────── */
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.15;
+  pointer-events: none;
+}
+.orb-sky {
+  background: radial-gradient(circle, var(--accent-light), transparent 70%);
+}
+.orb-kais {
+  background: radial-gradient(circle, var(--sage-light), transparent 70%);
+}
+.orb-gold {
+  background: radial-gradient(circle, #D4A574, transparent 70%);
+}
+
+/* ── Pills / Tags ────────────────────────────────────────────── */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 14px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  border-radius: 9999px;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.pill-accent {
+  background: var(--accent-subtle);
+  color: var(--accent);
+}
+.pill-sage {
+  background: var(--sage-subtle);
+  color: var(--sage);
+}
+.pill-neutral {
+  background: var(--canvas-alt);
+  color: var(--ink-muted);
+  border: 1px solid var(--border);
+}
+
+/* ── Overline Label ──────────────────────────────────────────── */
+.overline {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+/* ── Section Divider ─────────────────────────────────────────── */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border) 20%, var(--border) 80%, transparent);
+}
+
+/* ── Dot Grid Texture ────────────────────────────────────────── */
+.dot-grid {
+  background-image: radial-gradient(circle, var(--border) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* ── Keyframes ───────────────────────────────────────────────── */
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes slide-down {
+  from { opacity: 0; transform: translateY(-12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ── Focus Ring ──────────────────────────────────────────────── */
+*:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
