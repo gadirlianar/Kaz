@@ -4,7 +4,7 @@
    ============================================================ */
 
 import type { Metadata } from "next";
-import UniversityDatabase from "@/components/education/UniversityDatabase";
+import UniversityGrid from "@/components/education/UniversityGrid";
 import ProcessSteps from "@/components/education/ProcessSteps";
 import PageTransition from "@/components/layout/PageTransition";
 
@@ -42,7 +42,7 @@ export default function EducationPage() {
       </section>
 
       {/* Interactive university database */}
-      <UniversityDatabase />
+      <UniversityGrid />
 
       {/* Application process timeline */}
       <ProcessSteps />

@@ -243,16 +243,23 @@ export default function HeroSection() {
                     {/* Glow behind */}
                     <div className="absolute -top-10 -right-10 w-80 h-80 rounded-full" style={{ background: "rgba(30,58,95,0.06)", filter: "blur(70px)" }} />
 
-                    <div className="relative card-elevated p-10 max-w-md ml-auto">
-                      <div className="flex items-center gap-4 mb-8">
-                        <div className="w-14 h-14 rounded-2xl flex items-center justify-center" style={{ background: "var(--tourism-wash)" }}>
-                          <Plane className="w-6 h-6" style={{ color: "var(--tourism)" }} />
-                        </div>
-                        <div>
-                          <p className="text-base font-semibold text-primary">Анталия демалысы</p>
-                          <p className="text-sm text-secondary">7 күн · All Inclusive</p>
+                    <div className="relative card-elevated max-w-md ml-auto overflow-hidden">
+                      <div className="relative h-48 w-full">
+                        <img 
+                          src="https://images.unsplash.com/photo-1545562083-a600704fa486?q=80&w=1000" 
+                          alt="Анталия" 
+                          className="w-full h-full object-cover" 
+                        />
+                        <div className="absolute inset-0 bg-black/20" />
+                        <div className="absolute top-4 left-4 w-10 h-10 rounded-xl flex items-center justify-center bg-white/30 backdrop-blur-md border border-white/20">
+                          <Plane className="w-5 h-5 text-white" />
                         </div>
                       </div>
+                      <div className="p-8">
+                        <div className="mb-6">
+                          <p className="text-xl font-bold text-primary">Анталия демалысы</p>
+                          <p className="text-sm text-secondary">7 күн · All Inclusive</p>
+                        </div>
                       <div className="space-y-3.5 mb-8">
                         {["5★ қонақ үй · Трансфер", "Әуе билеті · Сақтандыру", "Экскурсиялар · Гид"].map((item, i) => (
                           <div key={i} className="flex items-center gap-3">
@@ -268,6 +275,7 @@ export default function HeroSection() {
                         </div>
                         <span className="px-5 py-2.5 rounded-xl text-white text-sm font-semibold" style={{ background: "var(--tourism)" }}>Брондау</span>
                       </div>
+                      </div>
                     </div>
 
                     {/* Floating mini card */}
@@ -282,16 +290,23 @@ export default function HeroSection() {
                   <motion.div key="edu-card" variants={scaleIn} initial="hidden" animate="visible" exit="hidden" className="relative">
                     <div className="absolute -top-10 -left-10 w-80 h-80 rounded-full" style={{ background: "rgba(197,168,128,0.08)", filter: "blur(70px)" }} />
 
-                    <div className="relative card-elevated p-10 max-w-md ml-auto">
-                      <div className="flex items-center gap-4 mb-8">
-                        <div className="w-14 h-14 rounded-2xl flex items-center justify-center" style={{ background: "var(--edu-wash)" }}>
-                          <GraduationCap className="w-6 h-6" style={{ color: "var(--edu-dark)" }} />
-                        </div>
-                        <div>
-                          <p className="text-base font-semibold text-primary">Politecnico di Milano</p>
-                          <p className="text-sm text-secondary">Милан, Италия · QS #111</p>
+                    <div className="relative card-elevated max-w-md ml-auto overflow-hidden">
+                      <div className="relative h-48 w-full">
+                        <img 
+                          src="https://images.unsplash.com/photo-1620216709893-ce58b6ebf4b0?q=80&w=1000" 
+                          alt="Милан" 
+                          className="w-full h-full object-cover" 
+                        />
+                        <div className="absolute inset-0 bg-black/20" />
+                        <div className="absolute top-4 left-4 w-10 h-10 rounded-xl flex items-center justify-center bg-white/30 backdrop-blur-md border border-white/20">
+                          <GraduationCap className="w-5 h-5 text-white" />
                         </div>
                       </div>
+                      <div className="p-8">
+                        <div className="mb-6">
+                          <p className="text-xl font-bold text-primary">Politecnico di Milano</p>
+                          <p className="text-sm text-secondary">Милан, Италия · QS #111</p>
+                        </div>
                       <div className="space-y-4 mb-8">
                         {[["Мамандық", "Инженерия · Дизайн"], ["Оқу ақысы", "$2,000 – $4,000/жыл"], ["Қабылдау", "Қыркүйек 2026"]].map(([label, value], i) => (
                           <div key={i}>
@@ -309,6 +324,7 @@ export default function HeroSection() {
                           <span className="pill pill-neutral">3 жыл</span>
                         </div>
                         <span className="px-5 py-2.5 rounded-xl text-primary text-sm font-semibold" style={{ background: "var(--edu)" }}>Толығырақ</span>
+                      </div>
                       </div>
                     </div>
 

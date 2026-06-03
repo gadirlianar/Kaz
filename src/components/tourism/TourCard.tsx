@@ -34,24 +34,14 @@ export default function TourCard({ tour }: TourCardProps) {
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
       className="glass-card rounded-2xl overflow-hidden group cursor-pointer transition-all duration-500 hover:border-sky-500/30 hover:shadow-2xl hover:shadow-sky-500/5"
     >
-      {/* Image area — gradient placeholder */}
+      {/* Image area */}
       <div className="relative h-48 overflow-hidden">
-        <div
-          className={`
-            absolute inset-0
-            ${
-              tour.type === "халықаралық"
-                ? "bg-gradient-to-br from-sky-900/80 via-sky-800/60 to-kais-900/40"
-                : "bg-gradient-to-br from-emerald-900/80 via-sky-900/60 to-sky-800/40"
-            }
-          `}
+        <img 
+          src={tour.imageUrl} 
+          alt={tour.title} 
+          className="absolute inset-0 w-full h-full object-cover"
         />
-        {/* Destination text overlay */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          <span className="text-4xl font-bold text-white/10">
-            {tour.destination.slice(0, 3).toUpperCase()}
-          </span>
-        </div>
+        <div className="absolute inset-0 bg-black/30" />
 
         {/* Top badges */}
         <div className="absolute top-3 left-3 flex gap-2">
