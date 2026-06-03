@@ -21,7 +21,7 @@ export const tours: Tour[] = [
     duration: "3 күн / 2 түн",
     description:
       "Көлсай көлдерінің керемет табиғатын тамашалаңыз. Бағдарлама: шатыр лагері, жаяу жорық, таулардағы серуен. Тамақ пен жабдықтар кіреді.",
-    imageUrl: "https://images.unsplash.com/photo-1542384701-c0e46e0eda04?q=80&w=1000",
+    imageUrl: "https://images.unsplash.com/photo-1542384701-c0e46e0eda04?q=80&w=800&auto=format&fit=crop",
     rating: 4.8,
     featured: true,
   },
@@ -37,7 +37,7 @@ export const tours: Tour[] = [
     duration: "7 күн / 6 түн",
     description:
       "Барлығы қамтылған (All Inclusive) 5 жұлдызды қонақ үйде демалыс. Әуе билеті, трансфер және медициналық сақтандыру кіреді.",
-    imageUrl: "https://images.unsplash.com/photo-1545562083-a600704fa486?q=80&w=1000",
+    imageUrl: "https://images.unsplash.com/photo-1545562083-a600704fa486?q=80&w=800&auto=format&fit=crop",
     rating: 4.9,
     featured: true,
   },
@@ -53,7 +53,7 @@ export const tours: Tour[] = [
     duration: "5 күн / 4 түн",
     description:
       "Бурдж Халифа, Dubai Mall, шөл сафариі. 4-5 жұлдызды қонақ үй, гид қызметі, трансфер кіреді.",
-    imageUrl: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=1000",
+    imageUrl: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=800&auto=format&fit=crop",
     rating: 4.7,
     featured: true,
   },
@@ -69,7 +69,7 @@ export const tours: Tour[] = [
     duration: "1 күн",
     description:
       "Алматыдан бір күндік тур. «Ведьмалар сақалы» мен «Жосылған қалалар» аңғарына серуен. Түскі ас және трансфер кіреді.",
-    imageUrl: "https://images.unsplash.com/photo-1565549077672-031bfadbd38c?q=80&w=1000",
+    imageUrl: "https://images.unsplash.com/photo-1525904574977-50b32948c26d?q=80&w=800&auto=format&fit=crop",
     rating: 4.6,
     featured: true,
   },
@@ -87,7 +87,7 @@ export const tours: Tour[] = [
     duration: "5 сағат 30 мин",
     description:
       "Turkish Airlines тікелей рейсі. Эконом-класс, багаж 23 кг кіреді.",
-    imageUrl: "https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?q=80&w=1000",
+    imageUrl: "https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?q=80&w=800&auto=format&fit=crop",
     rating: 4.5,
     featured: false,
   },
@@ -103,7 +103,7 @@ export const tours: Tour[] = [
     duration: "9 сағат 15 мин",
     description:
       "Air Astana рейсі (байланыс рейс). Студенттер үшін арнайы баға. Багаж 30 кг кіреді.",
-    imageUrl: "https://images.unsplash.com/photo-1596422846543-74c6fc0e3957?q=80&w=1000",
+    imageUrl: "https://images.unsplash.com/photo-1596422846543-75c6fc197f0a?q=80&w=800&auto=format&fit=crop",
     rating: 4.3,
     featured: false,
   },
@@ -119,7 +119,7 @@ export const tours: Tour[] = [
     duration: "7 сағат 45 мин",
     description:
       "Wizz Air немесе Turkish Airlines рейстері. Студенттік бағдарламаға қатысушыларға жеңілдік.",
-    imageUrl: "https://images.unsplash.com/photo-1620216709893-ce58b6ebf4b0?q=80&w=1000",
+    imageUrl: "https://images.unsplash.com/photo-1633320625900-58074d22187b?q=80&w=800&auto=format&fit=crop",
     rating: 4.4,
     featured: false,
   },
@@ -137,7 +137,7 @@ export const tours: Tour[] = [
     duration: "1 түн",
     description:
       "Алматының жүрегіндегі люкс қонақ үй. SPA, бассейн, ресторан, тегін Wi-Fi. Таңғы ас кіреді.",
-    imageUrl: "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=1000",
+    imageUrl: "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=800&auto=format&fit=crop",
     rating: 4.9,
     featured: false,
   },
@@ -153,7 +153,7 @@ export const tours: Tour[] = [
     duration: "1 түн",
     description:
       "Стамбулдағы ең жақсы қонақ үйлердің бірі. Босфор көрінісі, SPA, фитнес-зал. Таңғы ас кіреді.",
-    imageUrl: "https://images.unsplash.com/photo-1551882547-ff40c0d13c05?q=80&w=1000",
+    imageUrl: "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=800&auto=format&fit=crop",
     rating: 4.8,
     featured: false,
   },
@@ -171,7 +171,7 @@ export const tours: Tour[] = [
     duration: "30-45 мин",
     description:
       "Жайлы седан немесе минивэн. 24/7 қызмет. Ұшу кешіксе — ақысыз күту.",
-    imageUrl: "https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?q=80&w=1000",
+    imageUrl: "https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?q=80&w=800&auto=format&fit=crop",
     rating: 4.7,
     featured: false,
   },
@@ -187,7 +187,7 @@ export const tours: Tour[] = [
     duration: "40-60 мин",
     description:
       "VIP трансфер қызметі. Жеке көлік, Wi-Fi, су және снектер. Келу залында жеке қарсы алу.",
-    imageUrl: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?q=80&w=1000",
+    imageUrl: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?q=80&w=800&auto=format&fit=crop",
     rating: 4.6,
     featured: false,
   },

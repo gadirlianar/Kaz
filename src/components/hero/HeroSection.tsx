@@ -246,7 +246,7 @@ export default function HeroSection() {
                     <div className="relative card-elevated max-w-md ml-auto overflow-hidden">
                       <div className="relative h-48 w-full">
                         <img 
-                          src="https://images.unsplash.com/photo-1545562083-a600704fa486?q=80&w=1000" 
+                          src="https://images.unsplash.com/photo-1545562083-a600704fa486?q=80&w=800&auto=format&fit=crop" 
                           alt="Анталия" 
                           className="w-full h-full object-cover" 
                         />
@@ -293,7 +293,7 @@ export default function HeroSection() {
                     <div className="relative card-elevated max-w-md ml-auto overflow-hidden">
                       <div className="relative h-48 w-full">
                         <img 
-                          src="https://images.unsplash.com/photo-1620216709893-ce58b6ebf4b0?q=80&w=1000" 
+                          src="https://images.unsplash.com/photo-1633320625900-58074d22187b?q=80&w=800&auto=format&fit=crop" 
                           alt="Милан" 
                           className="w-full h-full object-cover" 
                         />
